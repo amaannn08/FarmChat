@@ -89,7 +89,7 @@ export default function LoginScreen() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
                     placeholder="Enter 10-digit number"
-                    className="input-dark pl-16 py-3 text-lg tracking-wider"
+                    className="input-dark !pl-16 py-3 text-lg tracking-wider"
                     required
                   />
                 </div>

@@ -1,0 +1,452 @@
+@import "tailwindcss";
+
+/* ============================================================
+   KisanSaathi Design System — CSS Custom Properties
+   ============================================================ */
+@theme {
+  /* Brand Colors — Earthy Agrarian Palette */
+  --color-kisan-green-50: #f0fdf0;
+  --color-kisan-green-100: #dcfce7;
+  --color-kisan-green-200: #bbf7d0;
+  --color-kisan-green-400: #4ade80;
+  --color-kisan-green-500: #22c55e;
+  --color-kisan-green-600: #16a34a;
+  --color-kisan-green-700: #15803d;
+  --color-kisan-green-800: #166534;
+  --color-kisan-green-900: #14532d;
+
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  --color-earth-50: #fefce8;
+  --color-earth-100: #fef9c3;
+
+  /* App Background dark earthy tones */
+  --color-bg-base: #0d1117;
+  --color-bg-surface: #161b22;
+  --color-bg-elevated: #1c2128;
+  --color-bg-hover: #21262d;
+  --color-bg-border: #30363d;
+
+  /* Font families */
+  --font-sans: 'Inter', 'Noto Sans', system-ui, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', system-ui, sans-serif;
+}
+
+/* ============================================================
+   Base Reset & Defaults
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Noto Sans', system-ui, sans-serif;
+  background-color: #0d1117;
+  color: #e6edf3;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   Scrollbar Styling
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* ============================================================
+   Glassmorphism Utilities
+   ============================================================ */
+.glass {
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(48, 54, 61, 0.6);
+}
+
+.glass-strong {
+  background: rgba(13, 17, 23, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(48, 54, 61, 0.8);
+}
+
+.glass-green {
+  background: rgba(22, 163, 74, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+/* ============================================================
+   Gradient Backgrounds
+   ============================================================ */
+.gradient-hero {
+  background: linear-gradient(135deg, #0d2b1a 0%, #0d1117 40%, #1a1205 100%);
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, #4ade80, #16a34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   Message Bubble Styles
+   ============================================================ */
+.msg-bubble-sent {
+  background: linear-gradient(135deg, #166534, #15803d);
+  border-radius: 18px 18px 4px 18px;
+}
+
+.msg-bubble-received {
+  background: #1c2128;
+  border: 1px solid #30363d;
+  border-radius: 18px 18px 18px 4px;
+}
+
+.msg-bubble-ai {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.08));
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 18px 18px 18px 4px;
+}
+
+.msg-bubble-nudge {
+  background: linear-gradient(135deg, rgba(216, 90, 48, 0.15), rgba(239, 68, 68, 0.08));
+  border: 1px solid rgba(216, 90, 48, 0.3);
+  border-radius: 12px;
+}
+
+/* ============================================================
+   Badge Styles
+   ============================================================ */
+.badge-trust {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #0d1117;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 99px;
+}
+
+.badge-green {
+  background: rgba(22, 163, 74, 0.15);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.badge-amber {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.badge-purple {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.badge-coral {
+  background: rgba(216, 90, 48, 0.15);
+  border: 1px solid rgba(216, 90, 48, 0.3);
+  color: #f97316;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+/* ============================================================
+   Animations & Keyframes
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30%            { transform: translateY(-6px); opacity: 1; }
+}
+
+@keyframes recording-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.15); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in-up   { animation: fadeInUp 0.4s ease both; }
+.animate-fade-in      { animation: fadeIn 0.3s ease both; }
+.animate-slide-right  { animation: slideInRight 0.35s ease both; }
+.animate-slide-left   { animation: slideInLeft 0.35s ease both; }
+.animate-bounce-in    { animation: bounceIn 0.4s ease both; }
+.animate-pulse-green  { animation: pulse-green 2s infinite; }
+.animate-recording    { animation: recording-pulse 1s ease-in-out infinite; }
+
+.typing-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: typing-dot 1.2s ease infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ============================================================
+   Input & Form Styles
+   ============================================================ */
+.input-dark {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.input-dark:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+
+.input-dark::placeholder {
+  color: #484f58;
+}
+
+/* ============================================================
+   Button Styles
+   ============================================================ */
+.btn-primary {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #15803d, #166534);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  background: #21262d;
+  color: #e6edf3;
+  border-color: #484f58;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: #8b949e;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background: #21262d;
+  color: #e6edf3;
+}
+
+/* ============================================================
+   Sidebar & Layout
+   ============================================================ */
+.sidebar-item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.sidebar-item:hover {
+  background: #21262d;
+  border-color: #30363d;
+}
+
+.sidebar-item.active {
+  background: rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.25);
+}
+
+/* ============================================================
+   Moderation Banner
+   ============================================================ */
+.moderation-banner {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #f87171;
+}
+
+/* ============================================================
+   Shimmer Loading
+   ============================================================ */
+.shimmer {
+  background: linear-gradient(90deg, #1c2128 25%, #21262d 50%, #1c2128 75%);
+  background-size: 200% auto;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============================================================
+   Chart Container
+   ============================================================ */
+.chart-container {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* ============================================================
+   Devanagari Font Override for Hindi content
+   ============================================================ */
+.hindi-text {
+  font-family: 'Noto Sans Devanagari', 'Noto Sans', system-ui, sans-serif;
+}
+
+/* ============================================================
+   Voice Waveform
+   ============================================================ */
+.voice-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+}
+
+.voice-bar {
+  width: 3px;
+  background: #4ade80;
+  border-radius: 99px;
+  animation: wave-bar 1.2s ease-in-out infinite;
+}
+
+@keyframes wave-bar {
+  0%, 100% { height: 4px; opacity: 0.4; }
+  50%       { height: 20px; opacity: 1; }
+}
+
+.voice-bar:nth-child(2) { animation-delay: 0.1s; }
+.voice-bar:nth-child(3) { animation-delay: 0.2s; }
+.voice-bar:nth-child(4) { animation-delay: 0.3s; }
+.voice-bar:nth-child(5) { animation-delay: 0.4s; }
+.voice-bar:nth-child(6) { animation-delay: 0.3s; }
+.voice-bar:nth-child(7) { animation-delay: 0.2s; }
+.voice-bar:nth-child(8) { animation-delay: 0.1s; }

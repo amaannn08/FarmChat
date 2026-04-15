@@ -26,7 +26,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   },
   maxHttpBufferSize: 10e6, // 10MB for voice/image blobs
@@ -34,7 +34,7 @@ const io = new Server(httpServer, {
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: process.env.FRONTEND_URL ,
   credentials: true,
 }));
 app.use(express.json({ limit: '15mb' }));

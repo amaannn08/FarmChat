@@ -20,7 +20,8 @@ export const SocketProvider = ({ children }) => {
       return;
     }
 
-    const newSocket = io('http://localhost:3001', {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+    const newSocket = io(backendUrl, {
       auth: { token },
       autoConnect: true,
       reconnection: true,

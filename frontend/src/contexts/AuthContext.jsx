@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // Configure axios defaults
-  axios.defaults.baseURL = 'http://localhost:3001/api';
+  axios.defaults.baseURL = `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001'}/api`;
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }
